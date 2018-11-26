@@ -28,7 +28,7 @@
 const express = require('express');
 const CiscoSpark = require('ciscospark');
 const app = express();
-const port = 8080;//3500;
+const port = process.env.PORT || 8080;
 var bodyParser = require('body-parser');
 // var fs = require('fs');
 var htmlFile;
