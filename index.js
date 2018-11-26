@@ -30,7 +30,7 @@ const CiscoSpark = require('ciscospark');
 const app = express();
 const port = 80;//3500;
 var bodyParser = require('body-parser');
-var fs = require('fs');
+// var fs = require('fs');
 var htmlFile;
 var bundleSpark;
 var myWebHook;
@@ -79,33 +79,33 @@ app.get('/GetRequests', (request, response) => {
 });
 
 
-app.get('/test', (request, response) => {
-    // response.send('Hello from Express!')
-    console.log('test reached');
-    fs.readFile('./frontend/index.html', function(err, data) {
-        if (err){
-            throw err;
-        }
-        htmlFile = data;
-    });
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.write(htmlFile);
-    response.end();
-});
-
-app.get('/bundleSpark.js', (request, response) => {
-    // response.send('Hello from Express!')
-    console.log('bundlespark reached');
-    fs.readFile('./frontend/bundleSpark.js', function(err, data) {
-        if (err){
-            throw err;
-        }
-        bundleSpark = data;
-    });
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.write(bundleSpark);
-    response.end();
-});
+// app.get('/test', (request, response) => {
+//     // response.send('Hello from Express!')
+//     console.log('test reached');
+//     fs.readFile('./frontend/index.html', function(err, data) {
+//         if (err){
+//             throw err;
+//         }
+//         htmlFile = data;
+//     });
+//     response.writeHead(200, {"Content-Type": "text/html"});
+//     response.write(htmlFile);
+//     response.end();
+// });
+//
+// app.get('/bundleSpark.js', (request, response) => {
+//     // response.send('Hello from Express!')
+//     console.log('bundlespark reached');
+//     fs.readFile('./frontend/bundleSpark.js', function(err, data) {
+//         if (err){
+//             throw err;
+//         }
+//         bundleSpark = data;
+//     });
+//     response.writeHead(200, {"Content-Type": "text/html"});
+//     response.write(bundleSpark);
+//     response.end();
+// });
 
 app.get(`/oauth/redirect`, function(req, res) {
     console.log('redirect reached');
