@@ -1,0 +1,9 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ciscospark": "^1.32.23",
+    "express": "^4.16.4"
+  }
+}

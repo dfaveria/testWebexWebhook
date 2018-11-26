@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./bundleSpark.js"></script>
+</head>
+<body>
+test fe ok
+
+<script>
+    //var CiscoSpark = require('ciscospark');
+    var CiscoSpark = window.ciscospark;
+    var spark = CiscoSpark.init({
+        config: {
+            credentials: {
+                authorizationString: "https://api.ciscospark.com/v1/authorize?client_id=C2204180a3be71b43d00cc9404b8d373d1c3f44e3eef927261efef3ffb60a122e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fredirect&scope=spark-compliance%3Amemberships_read%20spark-admin%3Aresource_groups_read%20spark%3Aall%20spark-compliance%3Amemberships_write%20spark-admin%3Apeople_write%20spark-admin%3Aroles_read%20spark-admin%3Aorganizations_read%20spark-admin%3Aresource_group_memberships_read%20spark-compliance%3Aevents_read%20spark-admin%3Aresource_group_memberships_write%20spark-compliance%3Arooms_read%20spark-compliance%3Ateam_memberships_read%20spark-compliance%3Amessages_write%20spark-compliance%3Ateam_memberships_write%20spark%3Akms%20spark-compliance%3Ateams_read%20spark-admin%3Alicenses_read%20spark-compliance%3Amessages_read%20spark-admin%3Apeople_read&state=set_state_here",
+            clientType: 'confidential'
+        }
+    }});
+
+    spark.once(`ready`, function() {
+        if (spark.canAuthorize) {
+            // your app logic goes here
+            console.warn('ready!');
+        }
+        else {
+            console.warn('cannot authorize, re initiatelogin');
+            spark.authorization.initiateLogin()
+        }
+    });
+</script>
+</body>
+</html>
