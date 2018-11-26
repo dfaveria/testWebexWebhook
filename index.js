@@ -42,6 +42,12 @@ var webhookRequests;
 // parse application/json
 app.use(bodyParser.json());
 
+app.get('/test2', (request, response) => {
+    response.writeHead(200, {"Content-Type": "text/html"});
+    response.write("it works");
+    response.end();
+});
+
 app.get('/createWebhook', (request, response) => {
         ciscospark.webhooks.create({
             resource: 'messages',
